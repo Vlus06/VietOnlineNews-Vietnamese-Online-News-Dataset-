@@ -1,7 +1,4 @@
-# Data
-DATASET/
-DATSET/
-DASET/
+# Full data is ignored
 data/raw/*
 data/rawdata/*
 data/processed/*
@@ -10,7 +7,12 @@ data/processed/*
 !data/rawdata/.gitkeep
 !data/processed/.gitkeep
 
-# Large files
+# Dashboard cache is allowed because it contains small precomputed EDA artifacts
+!data/dashboard_cache/
+!data/dashboard_cache/*.json
+!data/dashboard_cache/*.parquet
+
+# Large files are ignored globally
 *.csv
 *.parquet
 *.zip
@@ -18,15 +20,5 @@ data/processed/*
 *.pkl
 *.joblib
 
-# Temporary files
-/EDA.ipynb
-/*.png
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-
-# Secrets
-.env
+# Re-allow dashboard cache parquet after global parquet ignore
+!data/dashboard_cache/*.parquet

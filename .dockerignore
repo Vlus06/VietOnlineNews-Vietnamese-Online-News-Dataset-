@@ -1,29 +1,27 @@
-# Git
 .git
 .gitignore
 
-# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Virtual environment
 .venv/
 venv/
 env/
 
-# Jupyter
 .ipynb_checkpoints/
 
-# Data lớn, không đưa vào Docker image
+# Ignore full data
+data/raw/*
 data/rawdata/*
 data/processed/*
 
-# Notebook không cần copy vào image dashboard
+# Ignore notebooks from Docker image
 notebook/
+notebooks/
 
-# Large files
+# Ignore large files globally
 *.csv
 *.parquet
 *.zip
@@ -31,6 +29,11 @@ notebook/
 *.pkl
 *.joblib
 
-# OS files
+# Allow dashboard cache for Fast EDA Mode
+!data/dashboard_cache/
+!data/dashboard_cache/*.json
+!data/dashboard_cache/*.parquet
+
 .DS_Store
 Thumbs.db
+.env

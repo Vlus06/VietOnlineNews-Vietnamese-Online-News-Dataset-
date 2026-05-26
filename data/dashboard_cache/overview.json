@@ -1,0 +1,12 @@
+{
+  "n_rows": 268118,
+  "n_columns": 17,
+  "n_categories": 13,
+  "n_sources": 3,
+  "min_date": "2023-01-01 00:46:38",
+  "max_date": "2025-12-31 23:21:00",
+  "avg_full_text_wc": 713.1886781193355,
+  "median_full_text_wc": 638.0,
+  "p99_full_text_wc": 1920.8300000000163,
+  "max_full_text_wc": 35795.0
+}
