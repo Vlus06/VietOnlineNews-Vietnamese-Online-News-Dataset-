@@ -1,0 +1,8 @@
+services:
+  dashboard:
+    build: .
+    container_name: viet-online-news-dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data

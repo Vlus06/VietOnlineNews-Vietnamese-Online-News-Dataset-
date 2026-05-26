@@ -1,0 +1,32 @@
+# Data
+DATASET/
+DATSET/
+DASET/
+data/raw/*
+data/rawdata/*
+data/processed/*
+
+!data/raw/.gitkeep
+!data/rawdata/.gitkeep
+!data/processed/.gitkeep
+
+# Large files
+*.csv
+*.parquet
+*.zip
+*.gz
+*.pkl
+*.joblib
+
+# Temporary files
+/EDA.ipynb
+/*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
