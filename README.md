@@ -8,31 +8,30 @@
 | Project name | VietOnlineNews |
 | Task | Vietnamese Online News Dataset for Topic Classification |
 | Students | Bùi Thị Thanh Tuyền, Nguyễn Thanh Tuyền |
-| Supervisors | CN. Trần Quốc Khánh, TS. Nguyễn Gia Tuấn Anh |
+| Supervisors | TS. Nguyễn Gia Tuấn Anh, CN. Trần Quốc Khánh |
 | GitHub Repository | https://github.com/Vlus06/VietOnlineNews-Vietnamese-Online-News-Dataset- |
 | Hugging Face Dataset | https://huggingface.co/datasets/VLUS06/VietOnlineNews |
 
 ---
 
-## 1. Giới thiệu dự án
+## 1. Overview
 
 **VietOnlineNews** là một hệ thống xây dựng, tiền xử lý, phân tích và trực quan hóa bộ dữ liệu tin tức trực tuyến tiếng Việt đa nguồn. Dự án được thực hiện trong khuôn khổ học phần **DS108 - Tiền xử lý và xây dựng bộ dữ liệu**, với mục tiêu chuyển đổi dữ liệu báo điện tử thô thành một bộ dữ liệu có cấu trúc, có khả năng tái lập và có thể sử dụng cho các bài toán xử lý ngôn ngữ tự nhiên tiếng Việt.
 
-Dự án tập trung vào bài toán **phân loại chủ đề bài báo tiếng Việt**. Dữ liệu được thu thập từ nhiều nguồn báo điện tử, sau đó được chuẩn hóa, làm sạch, chia thành các tập `train`, `dev`, `test` và bổ sung metadata phục vụ truy vết, phân tích và mở rộng cho các bài toán khác.
+Dự án tập trung vào bài toán **phân loại chủ đề bài báo tiếng Việt**. Dữ liệu được thu thập từ nhiều nguồn báo điện tử, sau đó được chuẩn hóa, làm sạch, chia thành các tập `train`, `dev`, `test` và bổ sung metadata để hỗ trợ truy vết, phân tích và mở rộng cho các bài toán khác.
 
-Dự án không chỉ dừng lại ở notebook phân tích dữ liệu, mà còn được nâng cấp thành một hệ thống có thể chạy lại gồm:
+Dự án không chỉ dừng lại ở notebook phân tích dữ liệu, mà được nâng cấp thành một hệ thống có thể chạy lại, bao gồm:
 
 - Bộ dữ liệu tin tức tiếng Việt đa nguồn.
-- Pipeline xử lý và tổ chức dữ liệu.
 - Notebook thu thập, làm sạch và phân tích dữ liệu.
+- Pipeline xử lý dữ liệu và tạo cache thống kê.
 - Dashboard tương tác bằng Streamlit.
-- Dashboard cache giúp mở giao diện nhanh mà vẫn dùng thống kê từ toàn bộ dữ liệu.
 - Docker để đóng gói môi trường chạy.
 - Lưu trữ dữ liệu lớn trên Hugging Face Datasets.
 
 ---
 
-## 2. Nguồn dữ liệu
+## 2. Data Sources
 
 Dữ liệu được thu thập từ ba nguồn báo điện tử tiếng Việt:
 
@@ -40,29 +39,28 @@ Dữ liệu được thu thập từ ba nguồn báo điện tử tiếng Việt
 - **Thanh Niên**
 - **VietnamNet**
 
-Bộ dữ liệu sau xử lý được tổ chức thành hai nhóm chính:
-
-1. **Text data**: gồm `id`, `title`, `description`, `content`, `category`.
-2. **Metadata**: gồm `id`, `category`, `source`, `url`, `author`, `sub_topic`, `tag`, `public_date`.
+Các nguồn này được lựa chọn vì có mức độ phổ biến cao, chuyên mục rõ ràng và cung cấp dữ liệu bài viết phù hợp trong phạm vi khảo sát.
 
 ---
 
-## 3. Tính năng chính
+## 3. Key Features
 
 Dự án bao gồm các thành phần chính:
 
-- **Data Collection Notebooks**: notebook thu thập dữ liệu riêng cho từng nguồn báo.
-- **Data Cleaning Pipeline**: xử lý missing values, duplicate records, label conflicts và chuẩn hóa schema.
-- **Exploratory Data Analysis**: phân tích phân phối nhãn, nguồn báo, thời gian, độ dài văn bản và chất lượng dữ liệu.
-- **Interactive Streamlit Dashboard**: giao diện cho phép giảng viên và người dùng tương tác với dữ liệu.
-- **Fast EDA Mode**: dùng cache thống kê được tính sẵn từ toàn bộ dataset, giúp dashboard mở nhanh.
-- **Full Data Mode**: tải và merge toàn bộ dữ liệu để lọc/search đầy đủ khi cần phân tích sâu.
-- **Dockerized Deployment**: đóng gói môi trường chạy để tăng tính tái lập.
-- **Hugging Face Dataset Hosting**: lưu trữ full dataset bên ngoài GitHub để tránh đưa file lớn vào repository.
+| Component | Description |
+|---|---|
+| Data Collection | Notebook thu thập dữ liệu riêng cho từng nguồn báo |
+| Data Cleaning | Xử lý missing values, duplicate records, label conflicts và chuẩn hóa schema |
+| EDA | Phân tích phân phối nhãn, nguồn báo, thời gian, độ dài văn bản và chất lượng dữ liệu |
+| Streamlit Dashboard | Giao diện tương tác để khám phá dữ liệu và biểu đồ |
+| Fast EDA Mode | Dùng cache thống kê được tính sẵn từ toàn bộ dataset để dashboard mở nhanh |
+| Full Data Mode | Tải và merge toàn bộ dữ liệu để lọc/search đầy đủ khi cần |
+| Docker Deployment | Đóng gói môi trường chạy để tăng khả năng tái lập |
+| Hugging Face Hosting | Lưu trữ full dataset bên ngoài GitHub để repo gọn nhẹ |
 
 ---
 
-## 4. Cấu trúc thư mục
+## 4. Repository Structure
 
 ```text
 VietOnlineNews/
@@ -118,16 +116,16 @@ VietOnlineNews/
 └── README.md
 ```
 
-### Mô tả các thư mục chính
+### Folder Description
 
 | Folder/File | Description |
 |---|---|
 | `app/` | Chứa mã nguồn Streamlit Dashboard |
 | `src/` | Chứa các module lõi dùng cho dashboard và xử lý dữ liệu |
 | `scripts/` | Chứa các script vận hành như tải dữ liệu, chuyển Parquet, tạo dashboard cache |
-| `data/rawdata/` | Thư mục chứa dữ liệu thô ở local, không commit dữ liệu thật lên GitHub |
-| `data/processed/` | Thư mục chứa dữ liệu đã xử lý ở local, không commit full data lên GitHub |
-| `data/dashboard_cache/` | Chứa các thống kê EDA đã tính sẵn từ full dataset để dashboard mở nhanh |
+| `data/rawdata/` | Thư mục dữ liệu thô ở local, không commit dữ liệu thật lên GitHub |
+| `data/processed/` | Thư mục dữ liệu đã xử lý ở local, không commit full data lên GitHub |
+| `data/dashboard_cache/` | Chứa thống kê EDA đã tính sẵn từ full dataset để dashboard mở nhanh |
 | `notebook/` | Chứa notebook thu thập, làm sạch và phân tích dữ liệu |
 | `Dockerfile` | Cấu hình Docker image |
 | `docker-compose.yml` | Cấu hình chạy dashboard bằng Docker Compose |
@@ -137,26 +135,45 @@ VietOnlineNews/
 
 ## 5. Dataset
 
-Do kích thước dữ liệu lớn, các file dữ liệu đầy đủ không được lưu trực tiếp trong GitHub repository. Full dataset được lưu trữ trên Hugging Face Datasets:
+Do kích thước dữ liệu lớn, full dataset không được lưu trực tiếp trong GitHub repository. Dữ liệu được lưu trữ trên Hugging Face Datasets:
 
 ```text
 https://huggingface.co/datasets/VLUS06/VietOnlineNews
 ```
 
-Các file dữ liệu chính trên Hugging Face gồm:
+Cấu trúc dữ liệu trên Hugging Face được tổ chức như sau:
+
+```text
+VietOnlineNews/
+├── processed/
+│   ├── train.csv
+│   ├── dev.csv
+│   ├── test.csv
+│   └── news_metadata.csv
+│
+└── raw/
+    ├── merged_data_thanhnien.csv
+    ├── merged_data_tuoitre.csv
+    └── merged_data_vietnamnet.csv
+```
+
+### Dataset Files
 
 | File | Description |
 |---|---|
-| `train.parquet` | Tập huấn luyện, gồm nội dung bài báo và nhãn chủ đề |
-| `dev.parquet` | Tập phát triển/validation |
-| `test.parquet` | Tập kiểm thử |
-| `news_metadata.parquet` | Metadata của bài báo, dùng để phân tích và truy vết |
+| `processed/train.csv` | Tập huấn luyện, gồm nội dung bài báo và nhãn chủ đề |
+| `processed/dev.csv` | Tập phát triển/validation |
+| `processed/test.csv` | Tập kiểm thử |
+| `processed/news_metadata.csv` | Metadata của bài báo, dùng để phân tích và truy vết |
+| `raw/merged_data_thanhnien.csv` | Dữ liệu thô đã gộp từ Thanh Niên |
+| `raw/merged_data_tuoitre.csv` | Dữ liệu thô đã gộp từ Tuổi Trẻ |
+| `raw/merged_data_vietnamnet.csv` | Dữ liệu thô đã gộp từ VietnamNet |
 
 ---
 
 ## 6. Data Schema
 
-### 6.1 Text Splits: `train.parquet`, `dev.parquet`, `test.parquet`
+### 6.1 Text Splits: `train.csv`, `dev.csv`, `test.csv`
 
 | Column | Type | Description |
 |---|---|---|
@@ -166,7 +183,7 @@ Các file dữ liệu chính trên Hugging Face gồm:
 | `content` | string | Nội dung chính của bài báo |
 | `category` | string | Nhãn chủ đề chính của bài báo |
 
-### 6.2 Metadata File: `news_metadata.parquet`
+### 6.2 Metadata File: `news_metadata.csv`
 
 | Column | Type | Description |
 |---|---|---|
@@ -185,7 +202,7 @@ Trong dashboard, các file `train/dev/test` có thể được merge với `news
 
 ## 7. Dashboard Modes
 
-Streamlit Dashboard hỗ trợ hai chế độ chạy:
+Streamlit Dashboard hỗ trợ hai chế độ chạy.
 
 ### 7.1 Fast EDA Mode
 
@@ -198,15 +215,6 @@ data/dashboard_cache/
 ```
 
 Các file này là thống kê EDA được tính sẵn từ toàn bộ dataset. Nhờ đó dashboard mở nhanh, không cần tải hoặc merge full dataset khi khởi động.
-
-Chế độ này phù hợp để:
-
-- Demo nhanh cho giảng viên.
-- Xem các biểu đồ tổng quan.
-- Xem phân phối chủ đề, nguồn báo, thời gian, missing values và độ dài văn bản.
-- So sánh nguồn báo và phân tích từng chủ đề.
-- Xem preview dữ liệu đại diện.
-
 ### 7.2 Full Data Mode
 
 Full Data Mode tải và merge toàn bộ dữ liệu từ `data/processed/`. Chế độ này hỗ trợ lọc/search đầy đủ trên full dataset nhưng có thể mất thời gian hơn khi mở.
@@ -217,9 +225,15 @@ Full Data Mode tải và merge toàn bộ dữ liệu từ `data/processed/`. Ch
 python scripts/download_data.py
 ```
 
+Nếu dữ liệu tải về ở dạng CSV, có thể chuyển sang Parquet để tăng tốc độ đọc:
+
+```bash
+python scripts/convert_to_parquet.py
+```
+
 ---
 
-## 8. Cài đặt môi trường local
+## 8. Quick Start
 
 ### 8.1 Clone repository
 
@@ -228,77 +242,51 @@ git clone https://github.com/Vlus06/VietOnlineNews-Vietnamese-Online-News-Datase
 cd VietOnlineNews-Vietnamese-Online-News-Dataset-
 ```
 
-### 8.2 Tạo môi trường ảo
+### 8.2 Create virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Kích hoạt môi trường ảo trên Windows:
+Windows:
 
 ```bash
 .venv\Scripts\activate
 ```
 
-Kích hoạt môi trường ảo trên macOS/Linux:
+macOS/Linux:
 
 ```bash
 source .venv/bin/activate
 ```
 
-### 8.3 Cài đặt thư viện
+### 8.3 Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 9. Chạy Streamlit Dashboard
-
-### 9.1 Chạy nhanh bằng Fast EDA Mode
-
-Sau khi clone repo và cài thư viện, có thể chạy dashboard ngay:
+### 8.4 Run dashboard
 
 ```bash
 python -m streamlit run app/streamlit_app.py
 ```
 
-Sau đó mở trình duyệt tại:
+Open the dashboard at:
 
 ```text
 http://localhost:8501
 ```
 
-Fast EDA Mode không yêu cầu tải full dataset vì các thống kê EDA đã được lưu sẵn trong `data/dashboard_cache/`.
-
-### 9.2 Chạy Full Data Mode
-
-Nếu muốn lọc/search trên toàn bộ dữ liệu, tải full dataset trước:
-
-```bash
-python scripts/download_data.py
-```
-
-Sau đó chạy dashboard:
-
-```bash
-python -m streamlit run app/streamlit_app.py
-```
-
-Trong sidebar, chọn:
-
-```text
-Full Data Mode
-```
+By default, the dashboard runs in **Fast EDA Mode**, so it can start quickly without downloading the full dataset.
 
 ---
 
-## 10. Chạy bằng Docker
+## 9. Run with Docker
 
 Dự án có thể chạy bằng Docker Compose để đảm bảo khả năng tái lập môi trường.
 
-### 10.1 Build và chạy dashboard
+### 9.1 Build and run
 
 ```bash
 docker compose up --build
@@ -322,7 +310,7 @@ Tuy nhiên, trên máy host, hãy mở bằng:
 http://localhost:8501
 ```
 
-### 10.2 Dừng container
+### 9.2 Stop container
 
 ```bash
 docker compose down
@@ -332,9 +320,9 @@ Docker mặc định chạy Fast EDA Mode bằng dashboard cache, nên không c�
 
 ---
 
-## 11. Tải full dataset từ Hugging Face
+## 10. Download Full Dataset
 
-Dữ liệu đầy đủ được tải bằng script:
+Dữ liệu đầy đủ được tải từ Hugging Face bằng script:
 
 ```bash
 python scripts/download_data.py
@@ -349,15 +337,21 @@ data/processed/
 Các file cần có:
 
 ```text
-data/processed/train.parquet
-data/processed/dev.parquet
-data/processed/test.parquet
-data/processed/news_metadata.parquet
+data/processed/train.csv
+data/processed/dev.csv
+data/processed/test.csv
+data/processed/news_metadata.csv
+```
+
+Nếu muốn dùng Parquet cho tốc độ đọc tốt hơn:
+
+```bash
+python scripts/convert_to_parquet.py
 ```
 
 ---
 
-## 12. Tạo lại Dashboard Cache
+## 11. Rebuild Dashboard Cache
 
 Nếu full dataset thay đổi, cần tạo lại dashboard cache bằng lệnh:
 
@@ -365,7 +359,7 @@ Nếu full dataset thay đổi, cần tạo lại dashboard cache bằng lệnh:
 python scripts/build_dashboard_cache.py
 ```
 
-Script này sẽ đọc dữ liệu trong `data/processed/`, tính toán các thống kê EDA chính và lưu vào:
+Script này đọc dữ liệu trong `data/processed/`, tính toán các thống kê EDA chính và lưu vào:
 
 ```text
 data/dashboard_cache/
@@ -375,7 +369,7 @@ Các file cache này có thể được commit lên GitHub vì dung lượng nh�
 
 ---
 
-## 13. Data Processing Workflow
+## 12. Data Processing Workflow
 
 Quy trình xử lý dữ liệu gồm các bước chính:
 
@@ -387,13 +381,13 @@ Quy trình xử lý dữ liệu gồm các bước chính:
 6. Kiểm tra và xử lý label conflicts.
 7. Tạo metadata phục vụ truy vết.
 8. Chia dữ liệu thành `train`, `dev`, `test`.
-9. Chuyển dữ liệu sang định dạng Parquet để giảm dung lượng và tăng tốc độ đọc.
+9. Chuyển dữ liệu sang định dạng Parquet để tăng tốc độ đọc khi chạy local.
 10. Tạo dashboard cache từ full dataset.
 11. Trực quan hóa dữ liệu bằng Streamlit Dashboard.
 
 ---
 
-## 14. Reproducibility
+## 13. Reproducibility
 
 Dự án được thiết kế để đảm bảo khả năng tái lập:
 
@@ -407,7 +401,7 @@ Dự án được thiết kế để đảm bảo khả năng tái lập:
 
 ---
 
-## 15. Notes on Data Storage
+## 14. Notes on Data Storage
 
 GitHub repository này không chứa full data như `.csv` hoặc full `.parquet` trong `data/processed/`.
 
@@ -432,7 +426,7 @@ Thư mục này được commit lên GitHub vì chỉ chứa các thống kê t�
 
 ---
 
-## 16. Ethical and Legal Considerations
+## 15. Ethical and Legal Considerations
 
 Bộ dữ liệu được xây dựng cho mục đích học tập và nghiên cứu. Nội dung bài báo gốc thuộc quyền sở hữu của các đơn vị xuất bản tương ứng. Người dùng cần tuân thủ điều khoản sử dụng, chính sách bản quyền và quy định trích dẫn của các nguồn báo gốc.
 
@@ -445,7 +439,7 @@ Dữ liệu không nên được sử dụng cho các mục đích:
 
 ---
 
-## 17. Limitations
+## 16. Limitations
 
 Bộ dữ liệu vẫn có một số giới hạn:
 
@@ -458,7 +452,7 @@ Bộ dữ liệu vẫn có một số giới hạn:
 
 ---
 
-## 18. Citation
+## 17. Citation
 
 If you use this dataset or codebase, please cite:
 
@@ -474,7 +468,7 @@ If you use this dataset or codebase, please cite:
 
 ---
 
-## 19. License
+## 18. License
 
 This project is released for educational and research purposes.
 
@@ -482,6 +476,6 @@ The dataset follows a custom `educational-research-use-only` usage policy. Origi
 
 ---
 
-## 20. Contact
+## 19. Contact
 
 For questions, feedback, or discussions, please open an issue on the GitHub repository or use the discussion section on the Hugging Face dataset page.

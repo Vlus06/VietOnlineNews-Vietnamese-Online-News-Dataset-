@@ -1,0 +1,5 @@
+﻿column,exists,dtype,missing_count,missing_percent
+title,True,object,0,0.0
+description,True,object,0,0.0
+content,True,object,0,0.0
+category,True,object,0,0.0

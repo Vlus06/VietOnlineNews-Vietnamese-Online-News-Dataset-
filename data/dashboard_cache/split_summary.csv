@@ -1,0 +1,5 @@
+﻿split,count,ratio_percent
+train,187682,70.0
+dev,40218,15.0
+test,40218,15.0
+total,268118,100.0
