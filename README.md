@@ -391,8 +391,6 @@ Quy trình xử lý dữ liệu gồm các bước chính:
 
 Dự án được thiết kế để đảm bảo khả năng tái lập:
 
-- Không chỉnh sửa dữ liệu thô bằng tay hoặc bằng Excel.
-- Tất cả biến đổi dữ liệu được thực hiện thông qua code.
 - Full dataset được lưu trên Hugging Face thay vì commit trực tiếp lên GitHub.
 - Dashboard cache được tính từ full dataset để hỗ trợ demo nhanh.
 - Môi trường chạy được khai báo trong `requirements.txt`.
